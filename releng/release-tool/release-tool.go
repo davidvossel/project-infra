@@ -392,11 +392,11 @@ func (r *releaseData) forkProwJobs() error {
 		if err != nil {
 			return err
 		}
-	}
 
-	_, err = gitCommand("-C", r.infraDir, "pull", "origin", gitbranch)
-	if err != nil {
-		return err
+		_, err = gitCommand("-C", r.infraDir, "pull", "origin", gitbranch)
+		if err != nil {
+			return err
+		}
 	}
 
 	if _, err := os.Stat(fullJobConfig); err != nil && os.IsNotExist(err) {
